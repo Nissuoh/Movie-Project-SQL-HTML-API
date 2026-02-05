@@ -1,5 +1,7 @@
 import random as rand
-import movie_storage_sql as storage
+from storage.movie_storage_sql import *
+# ODER (besser für deine Struktur):
+import storage.movie_storage_sql as storage
 
 
 def main():
@@ -115,6 +117,7 @@ def generate_website():
     for title, data in movies.items():
         movie_grid += "<li>"
         movie_grid += '<div class="movie">'
+        # WICHTIG: Stelle sicher, dass 'poster' in movie_storage_sql.py korrekt zurückgegeben wird
         movie_grid += f'<img class="movie-poster" src="{data["poster"]}" alt="Poster">'
         movie_grid += f'<div class="movie-title">{title}</div>'
         movie_grid += f'<div class="movie-year">{data["year"]}</div>'
